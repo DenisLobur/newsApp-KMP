@@ -32,15 +32,16 @@ import com.example.dailypulse.articles.Article
 import com.example.dailypulse.articles.ArticlesViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
-    articlesViewModel: ArticlesViewModel
+    articlesViewModel: ArticlesViewModel = koinViewModel()
 ) {
     val articlesState = articlesViewModel.articleState.collectAsState()
 
-    Column() {
+    Column {
         AppBar(onAboutButtonClick)
         if (articlesState.value.loading) {
             Loader()

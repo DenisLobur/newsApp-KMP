@@ -19,8 +19,6 @@ import com.example.dailypulse.articles.ArticlesViewModel
 import com.example.dailypulse.screens.AboutScreen
 
 class MainActivity : ComponentActivity() {
-    private val articlesViewModel: ArticlesViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -40,7 +38,7 @@ class MainActivity : ComponentActivity() {
                             .fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        AppScaffold(articlesViewModel)
+                        AppScaffold()
                     }
                 }
             }
@@ -52,5 +50,5 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun AppAndroidPreview() {
-    AppScaffold(ArticlesViewModel())
+    AppScaffold()
 }
