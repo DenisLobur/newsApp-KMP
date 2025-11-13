@@ -1,6 +1,7 @@
 package com.example.dailypulse.articles
 
 import com.example.dailypulse.BaseViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -18,14 +19,15 @@ class ArticlesViewModel(
         getArticles()
     }
 
-    private fun getArticles() {
+    fun getArticles(forceFetch: Boolean = false) {
         scope.launch {
 //            delay(3000)
 //
 //            _articleState.emit(ArticleState(error = "Something went wrong"))
 
-//            delay(3000)
-            val fetchedArticles = fetchArticles()
+            _articleState.emit(ArticleState(loading = true, articles = _articleState.value.articles))
+            delay(1000)
+            val fetchedArticles = fetchArticles(forceFetch)
 
 //            delay(1500)
 
@@ -33,11 +35,11 @@ class ArticlesViewModel(
         }
     }
 
-    suspend fun fetchArticles(): List<Article> {
+    suspend fun fetchArticles(forceFetch: Boolean): List<Article> {
         return if (isMock) {
             mockArticles
         } else {
-            useCase.getArticles()
+            useCase.getArticles(forceFetch)
         }
     }
 

@@ -37,6 +37,7 @@ kotlin {
             implementation(libs.ktor.client.android)
             implementation(libs.koin.android)
             implementation(libs.sqldelight.android)
+            implementation(libs.accompanist.swiperefresh)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

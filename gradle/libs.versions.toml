@@ -19,6 +19,7 @@ coil = "2.6.0"
 kotlinxdatetime = "0.7.1"
 koin = "4.0.0"
 sqldelight = "2.0.2"
+accompanist = "0.36.0"
 
 
 [libraries]
@@ -53,6 +54,7 @@ sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sq
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
 
 
 [plugins]

@@ -9,8 +9,8 @@ import kotlin.time.ExperimentalTime
 
 class ArticlesUseCase(private val repo: ArticlesRepository) {
 
-    suspend fun getArticles(): List<Article> {
-        val articlesRaw = repo.getArticles()
+    suspend fun getArticles(forceFetch: Boolean): List<Article> {
+        val articlesRaw = repo.getArticles(forceFetch)
         return mapArticles(articlesRaw)
     }
 
