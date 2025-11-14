@@ -1,5 +1,7 @@
-package com.example.dailypulse.articles
+package com.example.dailypulse.articles.application
 
+import com.example.dailypulse.articles.data.ArticleRaw
+import com.example.dailypulse.articles.data.ArticlesRepository
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil
@@ -27,14 +29,14 @@ class ArticlesUseCase(private val repo: ArticlesRepository) {
 
     @OptIn(ExperimentalTime::class)
     private fun getDaysAgoString(date: String): String {
-        val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
-        
+        val today = Clock.System.now().toLocalDateTime(TimeZone.Companion.currentSystemDefault()).date
+
         // Parse date format "2025-11-11 09:56:55" to LocalDateTime
         val articleDate = try {
             val dateTimeParts = date.split(" ")
             val dateParts = dateTimeParts[0].split("-")
             val timeParts = dateTimeParts.getOrNull(1)?.split(":") ?: listOf("0", "0", "0")
-            
+
             LocalDateTime(
                 year = dateParts[0].toInt(),
                 monthNumber = dateParts[1].toInt(),
@@ -46,7 +48,7 @@ class ArticlesUseCase(private val repo: ArticlesRepository) {
         } catch (e: Exception) {
             return date // Return original date if parsing fails
         }
-        
+
         // Calculate days difference: negative means past, positive means future
         val days = articleDate.daysUntil(today)
 

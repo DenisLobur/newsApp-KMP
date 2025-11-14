@@ -1,4 +1,6 @@
-package com.example.dailypulse.articles
+package com.example.dailypulse.articles.data
+
+import com.example.dailypulse.articles.data.ArticlesService
 
 class ArticlesRepository(
     private val dataSource: ArticlesDataSource,
