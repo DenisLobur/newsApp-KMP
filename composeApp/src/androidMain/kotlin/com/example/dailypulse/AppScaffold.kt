@@ -9,15 +9,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.dailypulse.articles.presentation.ArticlesViewModel
 import com.example.dailypulse.screens.AboutScreen
 import com.example.dailypulse.screens.ArticlesScreen
 import com.example.dailypulse.screens.Screen
+import com.example.dailypulse.screens.SourcesScreen
 
 @Composable
-fun AppScaffold(
-
-) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold {
@@ -42,11 +40,17 @@ fun AppNavHost(
     ) {
         composable(Screen.ARTICLES.route) {
             ArticlesScreen(
+                onSourcesButtonClick = { navController.navigate(Screen.SOURCES.route) },
                 onAboutButtonClick = { navController.navigate(Screen.ABOUT_DEVICE.route) },
             )
         }
         composable(Screen.ABOUT_DEVICE.route) {
             AboutScreen(
+                onUpButtonClick = { navController.popBackStack() }
+            )
+        }
+        composable(Screen.SOURCES.route) {
+            SourcesScreen(
                 onUpButtonClick = { navController.popBackStack() }
             )
         }

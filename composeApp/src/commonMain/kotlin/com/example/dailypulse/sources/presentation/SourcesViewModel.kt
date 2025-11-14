@@ -16,7 +16,7 @@ class SourcesViewModel(private val useCase: SourcesUseCase): BaseViewModel() {
         getSources()
     }
 
-    private fun getSources(forceFetch: Boolean = false) {
+    fun getSources(forceFetch: Boolean = false) {
         scope.launch {
             _sourcesState.emit(SourcesState(loading = true, sources = _sourcesState.value.sources))
             delay(1000)
