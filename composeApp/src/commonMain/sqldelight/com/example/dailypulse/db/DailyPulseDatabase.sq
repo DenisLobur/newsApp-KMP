@@ -13,3 +13,25 @@ SELECT Article.* FROM Article;
 
 removeAllArticles:
 DELETE FROM Article;
+
+
+CREATE TABLE Source (
+    name TEXT NOT NULL PRIMARY KEY,
+    url TEXT NOT NULL,
+    icon TEXT NOT NULL,
+    desc TEXT NOT NULL,
+    category TEXT NOT NULL,
+    language TEXT NOT NULL,
+    country TEXT NOT NULL,
+    totalArticles INTEGER NOT NULL DEFAULT 0
+);
+
+insertSource:
+INSERT INTO Source (name, url, icon, desc, category, language, country, totalArticles) 
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+selectAllSources:
+SELECT Source.* FROM Source;
+
+removeAllSources:
+DELETE FROM Source;

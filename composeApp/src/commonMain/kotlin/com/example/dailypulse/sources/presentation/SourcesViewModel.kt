@@ -1,4 +1,6 @@
 package com.example.dailypulse.sources.presentation
 
-class SourcesViewModel {
+import com.example.dailypulse.sources.application.SourcesUseCase
+
+class SourcesViewModel(private val sourcesUseCase: SourcesUseCase) {
 }

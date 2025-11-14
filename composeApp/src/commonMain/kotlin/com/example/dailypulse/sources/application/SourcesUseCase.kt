@@ -1,4 +1,6 @@
-package com.example.dailypulse.sources.presentation.application
+package com.example.dailypulse.sources.application
 
-class SourcesUseCase {
+import com.example.dailypulse.sources.data.SourcesRepository
+
+class SourcesUseCase(private val repo: SourcesRepository) {
 }

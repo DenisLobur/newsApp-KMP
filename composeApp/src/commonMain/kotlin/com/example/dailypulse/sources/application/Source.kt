@@ -1,3 +1,5 @@
-package com.example.dailypulse.sources.presentation.application
+package com.example.dailypulse.sources.application
 
-data class Source()
+data class Source(
+    val name: String
+)
